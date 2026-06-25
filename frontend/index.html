@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Iqra University AI Chatbot - Get answers about admissions, programs, fees and more." />
+  <title>IU AI Assistant — Iqra University</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       MOBILE TOP BAR
+       ============================================ -->
+  <div class="mobile-header">
+    <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <div class="mobile-logo">🎓 IU Assistant</div>
+  </div>
+
+  <!-- Mobile Sidebar Overlay -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- ============================================
+       SIDEBAR
+       ============================================ -->
+  <aside id="sidebar" class="sidebar">
+    
+    <!-- Logo -->
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon">🎓</div>
+        <div class="logo-text">
+          <h1>Iqra University</h1>
+          <span>AI Assistant v1.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Chat Button -->
+    <button id="new-chat-btn" class="new-chat-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+      New Conversation
+    </button>
+
+    <!-- Quick Topics -->
+    <div class="sidebar-section-label">Quick Topics</div>
+    <nav class="quick-topics" aria-label="Quick topic shortcuts">
+
+      <button class="quick-topic-btn" data-question="What programs does Iqra University offer?">
+        <span class="topic-icon">📚</span> Programs Offered
+      </button>
+
+      <button class="quick-topic-btn" data-question="What is the admission process and requirements for undergraduate programs?">
+        <span class="topic-icon">📝</span> Admissions Process
+      </button>
+
+      <button class="quick-topic-btn" data-question="What is the fee structure for BSCS and BBA programs?">
+        <span class="topic-icon">💰</span> Fee Structure
+      </button>
+
+      <button class="quick-topic-btn" data-question="What scholarships are available at Iqra University?">
+        <span class="topic-icon">🏆</span> Scholarships
+      </button>
+
+      <button class="quick-topic-btn" data-question="Tell me about the BSCS program at Iqra University">
+        <span class="topic-icon">💻</span> BSCS Program
+      </button>
+
+      <button class="quick-topic-btn" data-question="Tell me about the BSSE (Software Engineering) program">
+        <span class="topic-icon">⚙️</span> BSSE Program
+      </button>
+
+      <button class="quick-topic-btn" data-question="What are the BBA program details and career prospects?">
+        <span class="topic-icon">📊</span> BBA Program
+      </button>
+
+      <button class="quick-topic-btn" data-question="What is the semester system at Iqra University?">
+        <span class="topic-icon">📅</span> Semester System
+      </button>
+
+      <button class="quick-topic-btn" data-question="What are the attendance and academic policies?">
+        <span class="topic-icon">📋</span> Academic Policies
+      </button>
+
+      <button class="quick-topic-btn" data-question="What campuses does Iqra University have and where are they located?">
+        <span class="topic-icon">🏫</span> Campus Locations
+      </button>
+
+      <button class="quick-topic-btn" data-question="What are the contact details and office locations?">
+        <span class="topic-icon">📞</span> Contact Info
+      </button>
+
+      <button class="quick-topic-btn" data-question="What MS and PhD programs are available at Iqra University?">
+        <span class="topic-icon">🔬</span> Postgraduate Programs
+      </button>
+
+    </nav>
+
+    <!-- Footer: Contact Card -->
+    <div class="sidebar-footer">
+      <div class="contact-card">
+        <p>📞 Need direct help?</p>
+        <a href="tel:+92211112644264">+92-21-111-264-264</a>
+        <a href="mailto:admissions@iqra.edu.pk">admissions@iqra.edu.pk</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================
+       MAIN CHAT AREA
+       ============================================ -->
+  <main class="main">
+
+    <!-- Desktop Chat Header -->
+    <header class="chat-header">
+      <div class="header-info">
+        <div class="avatar-online">
+          🎓
+          <div class="online-dot" title="Online"></div>
+        </div>
+        <div class="header-title">
+          <h2>IU AI Assistant</h2>
+          <p>● Online &amp; Ready to Help</p>
+        </div>
+      </div>
+      <div class="header-badge"> Rija's AI Assistant</div>
+    </header>
+
+    <!-- Messages Area -->
+    <section class="messages-area" id="messages-area" aria-live="polite" aria-label="Chat messages">
+
+      <!-- Welcome Screen (shown before first message) -->
+      <div class="welcome-screen" id="welcome-screen">
+        <div class="welcome-icon">🎓</div>
+        <h2>Welcome to Iqra University!</h2>
+        <p>I'm your AI-powered assistant. Ask me anything about admissions, programs, fees, scholarships, and more.</p>
+
+        <!-- Suggested Questions (Chips) -->
+        <div class="welcome-chips" role="list" aria-label="Suggested questions">
+
+          <button class="chip" role="listitem"
+            data-question="What undergraduate programs does Iqra University offer?">
+            <span class="chip-icon">📚</span> What programs are offered?
+          </button>
+
+          <button class="chip" role="listitem"
+            data-question="What are the admission requirements and process?">
+            <span class="chip-icon">📝</span> How do I apply for admission?
+          </button>
+
+          <button class="chip" role="listitem"
+            data-question="What is the fee structure for BSCS at Iqra University?">
+            <span class="chip-icon">💰</span> What are the tuition fees?
+          </button>
+
+          <button class="chip" role="listitem"
+            data-question="What scholarships are available at Iqra University?">
+            <span class="chip-icon">🏆</span> What scholarships are available?
+          </button>
+
+          <button class="chip" role="listitem"
+            data-question="What are the last date for admissions this semester?">
+            <span class="chip-icon">📅</span> When does admission close?
+          </button>
+
+          <button class="chip" role="listitem"
+            data-question="Where is Iqra University located and how do I contact them?">
+            <span class="chip-icon">📍</span> Where is the campus located?
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Chat Messages (hidden until first message) -->
+      <div class="messages-list" id="messages-list" style="display: none;" aria-label="Conversation">
+        <!-- Messages are injected here by JavaScript -->
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" id="typing-indicator" aria-label="Assistant is typing">
+        <div class="msg-avatar">🎓</div>
+        <div class="typing-bubble">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Message Input Area -->
+    <footer class="input-area">
+      <div class="input-wrapper">
+        <textarea
+          id="message-input"
+          placeholder="Ask about admissions, programs, fees, scholarships…"
+          rows="1"
+          aria-label="Type your message"
+          autocomplete="off"
+          spellcheck="true"
+          maxlength="1000"
+        ></textarea>
+
+        <button id="send-btn" title="Send message (Enter)" aria-label="Send message">
+          <!-- Send Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</p>
+    </footer>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

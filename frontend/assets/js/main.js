@@ -82,7 +82,7 @@ function appendMessage(text, role, isError = false) {
   // Sender label
   const sender = document.createElement("div");
   sender.className = "msg-sender";
-  sender.textContent = role === "bot" ? "IU Assistant" : "You";
+  sender.textContent = role === "bot" ? "Rija's Assistant" : "You";
 
   // Bubble
   const bubble = document.createElement("div");

@@ -5,7 +5,7 @@
 // ============================================
 
 // --- Configuration ---
-const API_BASE_URL = "https://iqra-university-chatbot.onrender.com/";
+const API_BASE_URL = "https://iqra-university-chatbot.onrender.com/api";
 
 // --- DOM Elements ---
 const messagesArea = document.getElementById("messages-area");
